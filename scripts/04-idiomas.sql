@@ -7,3 +7,11 @@ COLLATE='utf8mb4_uca1400_ai_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=8
 ;
+
+
+INSERT INTO `idiomas` (`codigo`, `idioma`) VALUES
+(1, 'Inglés'),
+(2, 'Español'),
+(3, 'Francés'),
+(4, 'Alemán'),
+(5, 'Italiano');

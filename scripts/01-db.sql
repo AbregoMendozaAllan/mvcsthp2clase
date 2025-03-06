@@ -1,3 +1,2 @@
 CREATE DATABASE seminario;
-GO
 USE seminario;

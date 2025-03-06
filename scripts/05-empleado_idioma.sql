@@ -11,3 +11,13 @@ CREATE TABLE `empleado_idioma` (
 COLLATE='utf8mb4_uca1400_ai_ci'
 ENGINE=InnoDB
 ;
+
+INSERT INTO `empleado_idioma` (`codigo_empleado`, `codigo_idioma`, `fecha`) VALUES
+(1, 1, '2021-08-10'),
+(1, 2, '2020-06-15'),
+(2, 1, '2019-04-20'),
+(2, 3, '2020-05-10'),
+(3, 2, '2021-09-30'),
+(3, 4, '2022-02-12'),
+(4, 1, '2018-12-10'),
+(4, 5, '2019-06-25');
