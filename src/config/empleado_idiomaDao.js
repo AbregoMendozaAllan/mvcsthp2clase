@@ -1,7 +1,12 @@
 import {executeQuery} from "./db.js";
 
-export const getAllEmpleadoIdioma = async () => {
-    const query = `SELECT * FROM empleado_idioma`;
+export const getAllEmpleadosWithIdiomas = async () => {
+    const query = `
+        SELECT ei.codigo_empleado, CONCAT(e.nombre, ' ', e.apellido) AS Nombre, ei.codigo_idioma, i.idioma, ei.fecha
+        FROM empleado_idioma ei
+            JOIN empleados e ON ei.codigo_empleado = e.codigo
+            JOIN idiomas i ON ei.codigo_idioma = i.codigo
+`;
     return await executeQuery(query);
 }
 
@@ -61,19 +66,3 @@ export const updateFecha = async(fecha, codigoEmpleado, codigoIdioma) => {
     return await executeQuery(query, params);
 }
 
-
-
-
-export const getEmpleadoIdiomaByIdiomaId = async (idiomaId) => {
-    const query = `SELECT * FROM empleado_idioma WHERE codigo_idioma = ?`;
-    const param = [idiomaId];
-    return await executeQuery(query, param);
-}
-
-
-
-export const deleteEmpleadoIdioma = async(codigoEmpleado, codigoIdioma) => {
-    const query = `DELETE FROM empleado_idioma WHERE codigo_empleado = ? AND codigo_idioma = ?`;
-    const param = [codigoEmpleado, codigoIdioma];
-    return await executeQuery(query, param);
-}

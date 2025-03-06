@@ -1,15 +1,17 @@
 import {
-    deleteIdiomFromEmpleado, getEmpleadoIdiomaByEmpleadoIdAndIdiomaId,
+    deleteIdiomFromEmpleado, getAllEmpleadosWithIdiomas, getEmpleadoIdiomaByEmpleadoIdAndIdiomaId,
     getIdiomasByEmpleadoId,
     getIdiomasNotAsigned,
     insertEmpleadoIdioma, updateFecha
 } from "../config/empleado_idiomaDao.js";
 import {dateParser, parseDatesInQueryResult} from "../utils/dateParser.js";
 
-export const obtenerTodosEmpleadoIdiomas = async (req, res) => {
+export const obtenerTodosEmpleadosConIdiomas = async (req, res) => {
     try {
-        const empleado_idioma = await getAllEmpleadoIdiomas();
-        res.render('empleado_idioma/empleado_idiomaView', { empleado_idioma });
+        const resultados = await getAllEmpleadosWithIdiomas();
+        const empleados_idiomas = parseDatesInQueryResult(resultados, 'fecha');
+        console.log(empleados_idiomas);
+        res.render('empleado_idioma/empleados_idiomasTodosView', { empleados_idiomas });
     } catch (error) {
         console.log(error);
     }
@@ -20,14 +22,11 @@ export const obtenerIdiomasDeEmpleado = async (req, res) => {
         const codigo = req.params.codigo;
         const resultado = await getIdiomasByEmpleadoId(codigo);
         const empleado_idioma = parseDatesInQueryResult(resultado, 'fecha');
-
         res.render('empleado_idioma/empleado_idiomasView', { empleado_idioma, codigo_empleado: codigo });
     } catch (error) {
         console.log('No tiene lenguajes registrados', error);
     }
 };
-
-
 
 export const listarIdiomasNoAsignados = async (req, res) => {
     try {

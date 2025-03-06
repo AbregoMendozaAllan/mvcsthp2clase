@@ -2,7 +2,7 @@ import express from 'express';
 import {
     agregarIdiomaAEmpleado, editarIdiomaDeEmpleado, eliminarIdiomaDeEmpleado,
     listarIdiomasNoAsignados, obtenerIdiomaDeEmpleadoConVista,
-    obtenerIdiomasDeEmpleado
+    obtenerIdiomasDeEmpleado, obtenerTodosEmpleadosConIdiomas
 } from "../controllers/empleado_IdiomaController.js";
 
 const empleado_idomaRouter = express.Router();
@@ -20,6 +20,6 @@ empleado_idomaRouter.get('/empleado/:codigoEmpleado/editarIdioma/:codigoIdioma',
     obtenerIdiomaDeEmpleadoConVista('empleado_idioma/empleado_idiomaEditarView'),);
 empleado_idomaRouter.post('/empleado/:codigoEmpleado/editarIdioma/:codigoIdioma', editarIdiomaDeEmpleado);
 
-
+empleado_idomaRouter.get('/', obtenerTodosEmpleadosConIdiomas);
 
 export default empleado_idomaRouter;

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Empleados e idiomas</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        thead {
+            background-color: #000100;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #D6EEEE;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lista de empleados e idiomas</h1>
+
+<a href="/index">Regresar a indice</a><br>
+
+<% if (empleados_idiomas.length > 0) { %>
+    <table>
+        <thead>
+        <tr>
+            <td>Codigo de Empleado</td>
+            <td>Empleado</td>
+            <td>Codigo de Idioma</td>
+            <td>Idioma</td>
+            <td>Tiempo de saber Idioma(fecha)</td>
+        </tr>
+        </thead>
+        <tbody>
+        <% empleados_idiomas.forEach(emplempleado_idioma => { %>
+            <tr onclick="window.location.href='/empleado_idiomas/empleado/<%= emplempleado_idioma.codigo_empleado %>/idiomas';" style="cursor:pointer;">
+                <td><%= emplempleado_idioma.codigo_empleado %></td>
+                <td><%= emplempleado_idioma.Nombre %></td>
+                <td><%= emplempleado_idioma.codigo_idioma %></td>
+                <td><%= emplempleado_idioma.idioma %></td>
+                <td><%= emplempleado_idioma.fecha %></td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+<% } else { %>
+    <p>No existen empleados con idiomas</p>
+<% } %>
+
+</body>
+</html>
