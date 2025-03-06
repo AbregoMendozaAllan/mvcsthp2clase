@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Ver idioma</title>
+</head>
+<body>
+<h1>Ver idioma</h1>
+<a href="/idiomas">Regresar</a>
+<form action="/idiomas/ver/<%= idioma.codigo%>" method="post">
+
+    <label for="codigo">Codigo:</label>
+    <input type="text" name="codigo" value ="<%= idioma.codigo %>" disabled><br>
+
+    <label for="idioma">Idioma:</label>
+    <input type="text" name="idioma" value ="<%= idioma.idioma %>" disabled><br>
+    
+</form>
+</body>
+</html>

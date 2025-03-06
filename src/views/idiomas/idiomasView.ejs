@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>idiomas</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        thead {
+            background-color: #000100;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #D6EEEE;
+        }
+    </style>
+</head>
+<body>
+<h1>Lista de idiomas</h1>
+<a href="/index">Regresar a Indice</a><br>
+<a href="/idiomas/crear">Agregar idioma</a>
+<table>
+    <thead>
+    <tr>
+        <td>Codigo</td>
+        <td>Idioma</td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <% idiomas.forEach(idioma => { %>
+        <tr>
+            <td><%= idioma.codigo %></td>
+            <td><%= idioma.idioma %></td>
+            <td>
+                <a href="/idiomas/editar/<%= idioma.codigo %>">
+                    <img src="static/resources/edit_square_24dp.svg" alt="Editar" width="24" height="24">
+                </a>
+                <a href="/idiomas/ver/<%= idioma.codigo %>">
+                    <img src="static/resources/visibility_24dp.svg" alt="Ver" width="24" height="24">
+                </a>
+                <a href="/idiomas/eliminar/<%= idioma.codigo %>">
+                    <img src="static/resources/delete_24dp.svg" alt="Eliminar" width="24" height="24">
+                </a>
+            </td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Idiomas de <%= empleado_idioma.length > 0 ? empleado_idioma[0].nombre : "Empleado" %></title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        thead {
+            background-color: #000100;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #D6EEEE;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lista de idiomas de <%= empleado_idioma.length > 0 ? empleado_idioma[0].nombre : "Empleado" %></h1>
+
+<a href="/empleados">Regresar a empleados</a><br>
+<a href="/empleado_idiomas/empleado/<%= codigo_empleado %>/crear">Agregar idioma</a>
+
+
+<% if (empleado_idioma.length > 0) { %>
+    <table>
+        <thead>
+        <tr>
+            <td>Codigo</td>
+            <td>Idioma</td>
+            <td>Fecha</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <% empleado_idioma.forEach(empleado => { %>
+            <tr>
+                <td><%= empleado.codigo_idioma %></td>
+                <td><%= empleado.idioma %></td>
+                <td><%= empleado.fecha %></td>
+                <td>
+                    <a href="/empleado_idiomas/empleado/<%= empleado.codigo_empleado %>/editarIdioma/<%= empleado.codigo_idioma %>">
+                        <img src="static/resources/edit_square_24dp.svg" alt="Editar" width="24" height="24">
+                    </a>
+                    <a href="/empleado_idiomas/empleado/<%= empleado.codigo_empleado %>/eliminarIdioma/<%= empleado.codigo_idioma %>">
+                        <img src="static/resources/delete_24dp.svg" alt="Eliminar" width="24" height="24">
+                    </a>
+                </td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+<% } else { %>
+    <p>Este empleado no tiene idiomas registrados.</p>
+<% } %>
+
+
+</body>
+</html>

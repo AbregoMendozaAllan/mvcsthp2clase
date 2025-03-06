@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Ver Cliente</title>
+</head>
+<body>
+<h1>Ver Cliente</h1>
+<a href="/clientes">Regresar</a>
+<form action="/clientes/ver/<%= cliente.codigo%>" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" value ="<%= cliente.nombre %>" placeholder="Nombre" disabled><br>
+    <label for="apellido">Apellido:</label>
+    <input type="text" name="apellido" value ="<%= cliente.apellido %>" placeholder="Apellido" disabled><br>
+    <label for="edad">Edad:</label>
+    <input type="number" name="edad" value ="<%= cliente.edad %>" placeholder="Edad" disabled><br>
+    <label for="telefono">Telefono:</label>
+    <input type="text" name="telefono" value ="<%= cliente.telefono %>" placeholder="Telefono" disabled><br>
+    <label for="ciudad">Ciudad:</label>
+    <input type="text" name="ciudad" value ="<%= cliente.ciudad %>" placeholder="Ciudad" disabled><br>
+</form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Editar idioma</title>
+</head>
+<body>
+    <h1>Editar idioma</h1>
+    <a href="/idiomas">Regresar</a>
+    <form action="/idiomas/editar/<%= idioma.codigo%>" method="post">
+
+        <label for="idioma">Idioma:</label>
+        <input type="text" name="idioma" value ="<%= idioma.idioma %>" placeholder="Español" required><br>
+
+        <button type="submit">Confirmar</button>
+    </form>
+</body>
+</html>

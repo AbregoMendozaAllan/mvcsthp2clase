@@ -1,0 +1,13 @@
+CREATE TABLE `empleados` (
+	`codigo` INT(11) NOT NULL AUTO_INCREMENT,
+	`nombre` VARCHAR(30) NOT NULL COLLATE 'utf8mb4_uca1400_ai_ci',
+	`apellido` VARCHAR(30) NOT NULL COLLATE 'utf8mb4_uca1400_ai_ci',
+	`fecha_contratacion` DATE NOT NULL,
+	`sueldo` DECIMAL(20,6) NOT NULL DEFAULT '0.000000',
+	`telefono` VARCHAR(30) NOT NULL DEFAULT '0' COLLATE 'utf8mb4_uca1400_ai_ci',
+	PRIMARY KEY (`codigo`) USING BTREE
+)
+COLLATE='utf8mb4_uca1400_ai_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=9
+;

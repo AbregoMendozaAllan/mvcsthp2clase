@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Eliminar empleado</title>
+</head>
+<body>
+<h1>Eliminar empleado</h1>
+<a href="/empleados">Regresar</a>
+<form action="/empleados/eliminar/<%= empleado.codigo%>" method="post">
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" value ="<%= empleado.nombre %>" disabled><br>
+
+    <label for="apellido">Apellido:</label>
+    <input type="text" name="apellido" value ="<%= empleado.apellido %>" disabled><br>
+
+    <label for="fecha_contratacion">Fecha Contratacion:</label>
+    <input type="text" name="fecha_contratacion" value ="<%= empleado.fecha_contratacion %>" disabled><br>
+
+    <label for="sueldo">Sueldo:</label>
+    <input type="number" step="1.0" name="sueldo" value ="<%= empleado.sueldo %>" disabled><br>
+
+    <label for="telefono">Telefono:</label>
+    <input type="text" name="telefono" value ="<%= empleado.telefono %>" disabled><br>
+
+    <button type="submit">Eliminar</button>
+</form>
+</body>
+</html>

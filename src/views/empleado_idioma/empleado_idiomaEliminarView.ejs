@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eliminar idioma</title>
+</head>
+<body>
+<h1>Eliminar idioma</h1>
+<a href="/empleado_idiomas/empleado/<%= empleado_idioma.codigo_empleado %>/idiomas">regresar</a>
+<form action="/empleado_idiomas/empleado/<%= empleado_idioma.codigo_empleado %>/eliminarIdioma/<%= empleado_idioma.codigo_idioma %>" method="post">
+
+    <label for="idioma">Idioma</label><br>
+    <input type="text" name="idioma" value="<%= empleado_idioma.idioma %>" disabled><br>
+
+    <label for="fecha">Tiempo de saber idioma(fecha):</label><br>
+    <input type="text" name="fecha" value="<%= empleado_idioma.fecha %>" disabled><br>
+
+    <button type="submit">Confirmar</button>
+</form>
+</body>
+</html>

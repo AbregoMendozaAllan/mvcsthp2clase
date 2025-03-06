@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clientes</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        thead {
+            background-color: #000100;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #D6EEEE;
+        }
+    </style>
+</head>
+<body>
+<h1>Lista de Clientes</h1>
+<a href="/index">Regresar a Indice</a><br>
+<a href="/clientes/crear">Agregar cliente</a>
+<table>
+    <thead>
+    <tr>
+        <td>Codigo</td>
+        <td>Nombre</td>
+        <td>Apellido</td>
+        <td>Edad</td>
+        <td>Ciudad</td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <% clientes.forEach(cliente => { %>
+        <tr>
+            <td><%= cliente.codigo %></td>
+            <td><%= cliente.nombre %></td>
+            <td><%= cliente.apellido %></td>
+            <td><%= cliente.edad %></td>
+            <td><%= cliente.ciudad %></td>
+            <td>
+                <a href="/clientes/editar/<%= cliente.codigo %>">
+                    <img src="static/resources/edit_square_24dp.svg" alt="Editar" width="24" height="24">
+                </a>
+                <a href="/clientes/ver/<%= cliente.codigo %>">
+                    <img src="static/resources/visibility_24dp.svg" alt="Ver" width="24" height="24">
+                </a>
+                <a href="/clientes/eliminar/<%= cliente.codigo %>">
+                    <img src="static/resources/delete_24dp.svg" alt="Eliminar" width="24" height="24">
+                </a>
+            </td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+</body>
+</html>

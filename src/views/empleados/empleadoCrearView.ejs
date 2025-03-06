@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Crear Empleado</title>
+</head>
+<body>
+<h1>Crear Empleado</h1>
+<a href="/empleados">Regresar</a>
+    <form action="/empleados/crear" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" placeholder="Alberto" required><br>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" placeholder="Hernandez" required><br>
+
+        <label for="fecha_contratacion">Fecha contratacion:</label>
+        <input type="text" name="fecha_contratacion" placeholder="2000-12-31" required><br>
+
+        <label for="sueldo">Sueldo:</label>
+        <input type="number" step="1.00" name="sueldo" placeholder="0.0" required><br>
+
+        <label for="telefono">Telefono:</label>
+        <input type="text" name="telefono" placeholder="99999999" required><br>
+
+        <button type="submit">Confirmar</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eliminar idioma</title>
+</head>
+<body>
+<h1>Eliminar idioma</h1>
+<a href="/empleado_idiomas/empleado/<%= empleado_idioma.codigo_empleado %>/idiomas">regresar</a>
+<form action="/empleado_idiomas/empleado/<%= empleado_idioma.codigo_empleado %>/editarIdioma/<%= empleado_idioma.codigo_idioma %>" method="post">
+
+    <label for="idiomas">Seleccione un idioma:</label><br>
+    <select id="idiomas" name="codigo_idioma" required>
+        <option value="<%= empleado_idioma.codigo_idioma %>"><%= empleado_idioma.idioma %></option>
+        <% idiomas.forEach(idioma => { %>
+            <option value="<%= idioma.codigo %>"><%= idioma.idioma %></option>
+        <% }); %>
+    </select><br>
+
+    <label for="fecha">Tiempo de saber idioma(fecha):</label><br>
+    <input type="text" name="fecha" value="<%= empleado_idioma.fecha %>" placeholder="2000-12-31"><br>
+
+    <button type="submit">Confirmar</button>
+</form>
+</body>
+</html>
