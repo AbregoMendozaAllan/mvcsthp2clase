@@ -10,7 +10,6 @@ export const obtenerTodosEmpleadosConIdiomas = async (req, res) => {
     try {
         const resultados = await getAllEmpleadosWithIdiomas();
         const empleados_idiomas = parseDatesInQueryResult(resultados, 'fecha');
-        console.log(empleados_idiomas);
         res.render('empleado_idioma/empleados_idiomasTodosView', { empleados_idiomas });
     } catch (error) {
         console.log(error);
