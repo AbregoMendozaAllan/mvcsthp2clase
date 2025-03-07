@@ -1,7 +1,7 @@
 import {executeQuery} from "./db.js";
 
 export const getAllEmpleados = async () => {
-    const query = `SELECT * FROM empleados`;
+    const query = `SELECT codigo, nombre, apellido, fecha_contratacion, CAST(sueldo AS DECIMAL(10,2)) AS sueldo, telefono FROM empleados`;
     return await executeQuery(query);
 }
 
@@ -14,7 +14,7 @@ export const insertEmpleado = async(nombre, apellido, fecha_contratacion, sueldo
 }
 
 export const getEmpleadoById = async (codigo) => {
-    const query = `SELECT * FROM empleados WHERE codigo = ?`;
+    const query = `SELECT codigo, nombre, apellido, fecha_contratacion, CAST(sueldo AS DECIMAL(10,2)) AS sueldo, telefono FROM empleados WHERE codigo = ?`;
     const param = [codigo];
     return await executeQuery(query, param);
 }
