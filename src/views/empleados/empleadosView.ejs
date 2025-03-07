@@ -3,16 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>empleados</title>
+    <title>Empleados</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
     <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding-top: 20px;
         }
 
-        th, td {
-            text-align: left;
-            padding: 8px;
+        a {
+            margin-right: 10px;
+        }
+
+        a img {
+            vertical-align: middle;
+            transition: transform 0.2s;
+        }
+
+        a:hover img {
+            transform: scale(1.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
         thead {
@@ -21,56 +38,73 @@
         }
 
         tr:nth-child(even) {
-            background-color: #D6EEEE;
+            background-color: #f5f5f5;
         }
+
+        td, th {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 <body>
-<h1>Lista de empleados</h1>
-<a href="/index">Regresar a Indice</a><br>
-<a href="/empleados/crear">Agregar empleado</a>
-<table>
-    <thead>
-    <tr>
-        <td>Codigo</td>
-        <td>Nombre</td>
-        <td>Apellido</td>
-        <td>Fecha de contratacion</td>
-        <td>Sueldo</td>
-        <td>Telefono</td>
-        <td></td>
-        <td>Leng</td>
-    </tr>
-    </thead>
-    <tbody>
-    <% empleados.forEach(empleado => { %>
-        <tr>
-            <td><%= empleado.codigo %></td>
-            <td><%= empleado.nombre %></td>
-            <td><%= empleado.apellido %></td>
-            <td><%= empleado.fecha_contratacion %></td>
-            <td><%= empleado.sueldo %></td>
-            <td><%= empleado.telefono %></td>
-            <td>
-                <a href="/empleados/editar/<%= empleado.codigo %>">
-                    <img src="static/resources/edit_square_24dp.svg" alt="Editar" width="24" height="24">
-                </a>
-                <a href="/empleados/ver/<%= empleado.codigo %>">
-                    <img src="static/resources/visibility_24dp.svg" alt="Ver" width="24" height="24">
-                </a>
-                <a href="/empleados/eliminar/<%= empleado.codigo %>">
-                    <img src="static/resources/delete_24dp.svg" alt="Eliminar" width="24" height="24">
-                </a>
-            </td>
-            <td>
-                <a href="/empleado_idiomas/empleado/<%= empleado.codigo %>/idiomas">
-                    <img src="static/resources/voice_selection_24dp.svg" alt="Eliminar" width="24" height="24">
-                </a>
-            </td>
 
+<div class="container">
+    <h1 class="title is-3">Lista de Empleados</h1>
+
+    <div class="buttons">
+        <a class="button is-info" href="/index">Regresar a Indice</a>
+        <a class="button is-primary" href="/empleados/crear">Agregar Empleado</a>
+    </div>
+
+    <table class="table is-striped is-hoverable is-fullwidth">
+        <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha de Contratación</th>
+            <th>Sueldo</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+            <th>Lenguajes</th>
         </tr>
-    <% }) %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <% empleados.forEach(empleado => { %>
+            <tr>
+                <td><%= empleado.codigo %></td>
+                <td><%= empleado.nombre %></td>
+                <td><%= empleado.apellido %></td>
+                <td><%= empleado.fecha_contratacion %></td>
+                <td><%= empleado.sueldo %></td>
+                <td><%= empleado.telefono %></td>
+                <td>
+                    <a href="/empleados/editar/<%= empleado.codigo %>">
+                        <img src="static/resources/edit_square_24dp.svg" alt="Editar" width="24" height="24">
+                    </a>
+                    <a href="/empleados/ver/<%= empleado.codigo %>">
+                        <img src="static/resources/visibility_24dp.svg" alt="Ver" width="24" height="24">
+                    </a>
+                    <a href="/empleados/eliminar/<%= empleado.codigo %>">
+                        <img src="static/resources/delete_24dp.svg" alt="Eliminar" width="24" height="24">
+                    </a>
+                </td>
+                <td>
+                    <a href="/empleado_idiomas/empleado/<%= empleado.codigo %>/idiomas">
+                        <img src="static/resources/voice_selection_24dp.svg" alt="Ver Idiomas" width="24" height="24">
+                    </a>
+                </td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>

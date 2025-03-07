@@ -2,22 +2,69 @@
 <html lang="en">
 <head>
     <title>Eliminar Cliente</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <style>
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding-top: 20px;
+        }
+
+        a, button {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-<h1>Eliminar Cliente</h1>
-<a href="/clientes">Regresar</a>
-<form action="/clientes/eliminar/<%= cliente.codigo%>" method="post">
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" value ="<%= cliente.nombre %>" placeholder="Nombre" disabled><br>
-    <label for="apellido">Apellido:</label>
-    <input type="text" name="apellido" value ="<%= cliente.apellido %>" placeholder="Apellido" disabled><br>
-    <label for="edad">Edad:</label>
-    <input type="number" name="edad" value ="<%= cliente.edad %>" placeholder="Edad" disabled><br>
-    <label for="telefono">Telefono:</label>
-    <input type="text" name="telefono" value ="<%= cliente.telefono %>" placeholder="Telefono" disabled><br>
-    <label for="ciudad">Ciudad:</label>
-    <input type="text" name="ciudad" value ="<%= cliente.ciudad %>" placeholder="Ciudad" disabled><br>
-    <button type="submit">Eliminar</button>
-</form>
+
+<div class="container">
+    <h1 class="title is-3">Eliminar Cliente</h1>
+
+    <a class="button is-info" href="/clientes">Regresar</a>
+
+    <form action="/clientes/eliminar/<%= cliente.codigo%>" method="post" class="box">
+        <div class="field">
+            <label class="label" for="nombre">Nombre</label>
+            <div class="control">
+                <input class="input" type="text" name="nombre" value ="<%= cliente.nombre %>" placeholder="Nombre" disabled>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="apellido">Apellido</label>
+            <div class="control">
+                <input class="input" type="text" name="apellido" value ="<%= cliente.apellido %>" placeholder="Apellido" disabled>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="edad">Edad</label>
+            <div class="control">
+                <input class="input" type="number" name="edad" value ="<%= cliente.edad %>" placeholder="Edad" disabled>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="telefono">Teléfono</label>
+            <div class="control">
+                <input class="input" type="text" name="telefono" value ="<%= cliente.telefono %>" placeholder="Teléfono" disabled>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="ciudad">Ciudad</label>
+            <div class="control">
+                <input class="input" type="text" name="ciudad" value ="<%= cliente.ciudad %>" placeholder="Ciudad" disabled>
+            </div>
+        </div>
+
+        <div class="control">
+            <button class="button is-danger" type="submit">Eliminar</button>
+        </div>
+    </form>
+</div>
+
 </body>
 </html>

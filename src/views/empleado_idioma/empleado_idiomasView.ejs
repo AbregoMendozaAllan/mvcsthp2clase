@@ -4,15 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Idiomas de <%= empleado_idioma.length > 0 ? empleado_idioma[0].nombre : "Empleado" %></title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
     <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding-top: 20px;
         }
 
-        th, td {
-            text-align: left;
-            padding: 8px;
+        a {
+            margin-right: 10px;
+        }
+
+        a img {
+            vertical-align: middle;
+            transition: transform 0.2s;
+        }
+
+        a:hover img {
+            transform: scale(1.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
         thead {
@@ -21,50 +38,64 @@
         }
 
         tr:nth-child(even) {
-            background-color: #D6EEEE;
+            background-color: #f5f5f5;
         }
+
+        td, th {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 <body>
 
-<h1>Lista de idiomas de <%= empleado_idioma.length > 0 ? empleado_idioma[0].nombre : "Empleado" %></h1>
+<div class="container">
+    <h1 class="title is-3">
+        Idiomas de <%= empleado_idioma.length > 0 ? empleado_idioma[0].nombre : "Empleado" %>
+    </h1>
 
-<a href="/empleados">Regresar a empleados</a><br>
-<a href="/empleado_idiomas/empleado/<%= codigo_empleado %>/crear">Agregar idioma</a>
+    <div class="buttons">
+        <a class="button is-info" href="/empleados">Regresar a empleados</a>
+        <a class="button is-primary" href="/empleado_idiomas/empleado/<%= codigo_empleado %>/crear">Agregar idioma</a>
+    </div>
 
-
-<% if (empleado_idioma.length > 0) { %>
-    <table>
-        <thead>
-        <tr>
-            <td>Codigo</td>
-            <td>Idioma</td>
-            <td>Fecha</td>
-            <td></td>
-        </tr>
-        </thead>
-        <tbody>
-        <% empleado_idioma.forEach(empleado => { %>
+    <% if (empleado_idioma.length > 0) { %>
+        <table class="table is-striped is-hoverable is-fullwidth">
+            <thead>
             <tr>
-                <td><%= empleado.codigo_idioma %></td>
-                <td><%= empleado.idioma %></td>
-                <td><%= empleado.fecha %></td>
-                <td>
-                    <a href="/empleado_idiomas/empleado/<%= empleado.codigo_empleado %>/editarIdioma/<%= empleado.codigo_idioma %>">
-                        <img src="static/resources/edit_square_24dp.svg" alt="Editar" width="24" height="24">
-                    </a>
-                    <a href="/empleado_idiomas/empleado/<%= empleado.codigo_empleado %>/eliminarIdioma/<%= empleado.codigo_idioma %>">
-                        <img src="static/resources/delete_24dp.svg" alt="Eliminar" width="24" height="24">
-                    </a>
-                </td>
+                <th>Codigo</th>
+                <th>Idioma</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
             </tr>
-        <% }) %>
-        </tbody>
-    </table>
-<% } else { %>
-    <p>Este empleado no tiene idiomas registrados.</p>
-<% } %>
-
+            </thead>
+            <tbody>
+            <% empleado_idioma.forEach(empleado => { %>
+                <tr>
+                    <td><%= empleado.codigo_idioma %></td>
+                    <td><%= empleado.idioma %></td>
+                    <td><%= empleado.fecha %></td>
+                    <td>
+                        <a href="/empleado_idiomas/empleado/<%= empleado.codigo_empleado %>/editarIdioma/<%= empleado.codigo_idioma %>">
+                            <img src="static/resources/edit_square_24dp.svg" alt="Editar" width="24" height="24">
+                        </a>
+                        <a href="/empleado_idiomas/empleado/<%= empleado.codigo_empleado %>/eliminarIdioma/<%= empleado.codigo_idioma %>">
+                            <img src="static/resources/delete_24dp.svg" alt="Eliminar" width="24" height="24">
+                        </a>
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No hay idiomas registrados para este empleado.</p>
+    <% } %>
+</div>
 
 </body>
 </html>

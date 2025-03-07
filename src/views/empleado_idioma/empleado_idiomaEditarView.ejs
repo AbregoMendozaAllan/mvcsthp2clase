@@ -3,25 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eliminar idioma</title>
+    <title>Editar idioma</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding-top: 20px;
+        }
+
+        a {
+            margin-right: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .form-container {
+            margin-top: 30px;
+        }
+
+        .form-container input,
+        .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #00d1b2;
+            color: white;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #009e8e;
+        }
+
+    </style>
 </head>
 <body>
-<h1>Eliminar idioma</h1>
-<a href="/empleado_idiomas/empleado/<%= empleado_idioma.codigo_empleado %>/idiomas">regresar</a>
-<form action="/empleado_idiomas/empleado/<%= empleado_idioma.codigo_empleado %>/editarIdioma/<%= empleado_idioma.codigo_idioma %>" method="post">
 
-    <label for="idiomas">Seleccione un idioma:</label><br>
-    <select id="idiomas" name="codigo_idioma" required>
-        <option value="<%= empleado_idioma.codigo_idioma %>"><%= empleado_idioma.idioma %></option>
-        <% idiomas.forEach(idioma => { %>
-            <option value="<%= idioma.codigo %>"><%= idioma.idioma %></option>
-        <% }); %>
-    </select><br>
+<div class="container">
+    <h1 class="title is-3">Editar idioma</h1>
 
-    <label for="fecha">Tiempo de saber idioma(fecha):</label><br>
-    <input type="text" name="fecha" value="<%= empleado_idioma.fecha %>" placeholder="2000-12-31"><br>
+    <a class="button is-info" href="/empleado_idiomas/empleado/<%= empleado_idioma.codigo_empleado %>/idiomas">Regresar</a>
 
-    <button type="submit">Confirmar</button>
-</form>
+    <div class="form-container">
+        <form action="/empleado_idiomas/empleado/<%= empleado_idioma.codigo_empleado %>/editarIdioma/<%= empleado_idioma.codigo_idioma %>" method="post">
+            <div class="field">
+                <label for="idiomas" class="label">Seleccione un idioma:</label>
+                <div class="control">
+                    <select id="idiomas" name="codigo_idioma" required>
+                        <option value="<%= empleado_idioma.codigo_idioma %>"><%= empleado_idioma.idioma %></option>
+                        <% idiomas.forEach(idioma => { %>
+                            <option value="<%= idioma.codigo %>"><%= idioma.idioma %></option>
+                        <% }); %>
+                    </select>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="fecha" class="label">Tiempo de saber idioma (fecha):</label>
+                <div class="control">
+                    <input type="text" name="fecha" class="input" value="<%= empleado_idioma.fecha %>" placeholder="2000-12-31" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button type="submit" class="button is-primary">Confirmar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>

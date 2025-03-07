@@ -1,29 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Editar empleado</title>
+    <title>Editar Empleado</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <style>
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding-top: 20px;
+        }
+
+        a, button {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Editar empleado</h1>
-    <a href="/empleados">Regresar</a>
-    <form action="/empleados/editar/<%= empleado.codigo%>" method="post">
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" value ="<%= empleado.nombre %>" placeholder="Alberto" required><br>
+<div class="container">
+    <h1 class="title is-3">Editar Empleado</h1>
 
-        <label for="apellido">Apellido:</label>
-        <input type="text" name="apellido" value ="<%= empleado.apellido %>" placeholder="Hernandez" required><br>
+    <a class="button is-info" href="/empleados">Regresar</a>
 
-        <label for="fecha_contratacion">Fecha contratacion:</label>
-        <input type="text" name="fecha_contratacion" value ="<%= empleado.fecha_contratacion %>" placeholder="2000-12-31" required><br>
+    <form action="/empleados/editar/<%= empleado.codigo%>" method="post" class="box">
+        <div class="field">
+            <label class="label" for="nombre">Nombre</label>
+            <div class="control">
+                <input class="input" type="text" name="nombre" value="<%= empleado.nombre %>" placeholder="Alberto" required>
+            </div>
+        </div>
 
-        <label for="sueldo">Sueldo:</label>
-        <input type="number" step="1.00" name="sueldo" value ="<%= empleado.sueldo %>" placeholder="0.0" required><br>
+        <div class="field">
+            <label class="label" for="apellido">Apellido</label>
+            <div class="control">
+                <input class="input" type="text" name="apellido" value="<%= empleado.apellido %>" placeholder="Hernandez" required>
+            </div>
+        </div>
 
-        <label for="telefono">Telefono:</label>
-        <input type="text" name="telefono" value ="<%= empleado.telefono %>" placeholder="99999999" required><br>
+        <div class="field">
+            <label class="label" for="fecha_contratacion">Fecha de Contratación</label>
+            <div class="control">
+                <input class="input" type="text" name="fecha_contratacion" value="<%= empleado.fecha_contratacion %>" placeholder="2000-12-31" required>
+            </div>
+        </div>
 
-        <button type="submit">Confirmar</button>
+        <div class="field">
+            <label class="label" for="sueldo">Sueldo</label>
+            <div class="control">
+                <input class="input" type="number" step="1.00" name="sueldo" value="<%= empleado.sueldo %>" placeholder="0.0" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="telefono">Teléfono</label>
+            <div class="control">
+                <input class="input" type="text" name="telefono" value="<%= empleado.telefono %>" placeholder="99999999" required>
+            </div>
+        </div>
+
+        <div class="control">
+            <button class="button is-primary" type="submit">Confirmar</button>
+        </div>
     </form>
+</div>
+
 </body>
 </html>

@@ -20,7 +20,7 @@ app.use('/idiomas', idiomaRouter);
 app.use('/index', indexRouter);
 app.use('/empleado_idiomas', empleado_idomaRouter);
 
-app.use('/static', express.static('public'))
+app.use('/static', express.static('public'));
 
 const port = process.env.PORT || 3000;
 

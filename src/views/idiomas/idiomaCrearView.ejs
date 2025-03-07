@@ -1,17 +1,42 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Crear idioma</title>
+    <title>Crear Idioma</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <style>
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding-top: 20px;
+        }
+
+        a, button {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-<h1>Crear idioma</h1>
-<a href="/idiomas">Regresar</a>
-    <form action="/idiomas/crear" method="post">
 
-        <label for="idioma">Idioma:</label>
-        <input type="text" name="idioma" placeholder="Español" required><br>
+<div class="container">
+    <h1 class="title is-3">Crear Idioma</h1>
 
-        <button type="submit">Confirmar</button>
+    <a class="button is-info" href="/idiomas">Regresar</a>
+
+    <form action="/idiomas/crear" method="post" class="box">
+        <div class="field">
+            <label class="label" for="idioma">Idioma</label>
+            <div class="control">
+                <input class="input" type="text" name="idioma" placeholder="Español" required>
+            </div>
+        </div>
+
+        <div class="control">
+            <button class="button is-primary" type="submit">Confirmar</button>
+        </div>
     </form>
+</div>
+
 </body>
 </html>

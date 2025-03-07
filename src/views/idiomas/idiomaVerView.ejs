@@ -1,19 +1,45 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Ver idioma</title>
+    <title>Ver Idioma</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <style>
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding-top: 20px;
+        }
+
+        a {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-<h1>Ver idioma</h1>
-<a href="/idiomas">Regresar</a>
-<form action="/idiomas/ver/<%= idioma.codigo%>" method="post">
 
-    <label for="codigo">Codigo:</label>
-    <input type="text" name="codigo" value ="<%= idioma.codigo %>" disabled><br>
+<div class="container">
+    <h1 class="title is-3">Ver Idioma</h1>
 
-    <label for="idioma">Idioma:</label>
-    <input type="text" name="idioma" value ="<%= idioma.idioma %>" disabled><br>
-    
-</form>
+    <a class="button is-info" href="/idiomas">Regresar</a>
+
+    <form action="/idiomas/ver/<%= idioma.codigo %>" method="post" class="box">
+        <div class="field">
+            <label class="label" for="codigo">Código</label>
+            <div class="control">
+                <input class="input" type="text" name="codigo" value="<%= idioma.codigo %>" disabled>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="idioma">Idioma</label>
+            <div class="control">
+                <input class="input" type="text" name="idioma" value="<%= idioma.idioma %>" disabled>
+            </div>
+        </div>
+    </form>
+</div>
+
 </body>
 </html>

@@ -1,20 +1,49 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Eliminar idioma</title>
+    <title>Eliminar Idioma</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <style>
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding-top: 20px;
+        }
+
+        a, button {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-<h1>Eliminar idioma</h1>
-<a href="/idiomas">Regresar</a>
-<form action="/idiomas/eliminar/<%= idioma.codigo%>" method="post">
 
-    <label for="codigo">Codigo:</label>
-    <input type="text" name="codigo" value ="<%= idioma.codigo %>" disabled><br>
+<div class="container">
+    <h1 class="title is-3">Eliminar Idioma</h1>
 
-    <label for="idioma">Idioma:</label>
-    <input type="text" name="idioma" value ="<%= idioma.idioma %>" disabled><br>
+    <a class="button is-info" href="/idiomas">Regresar</a>
 
-    <button type="submit">Eliminar</button>
-</form>
+    <form action="/idiomas/eliminar/<%= idioma.codigo %>" method="post" class="box">
+        <div class="field">
+            <label class="label" for="codigo">Código</label>
+            <div class="control">
+                <input class="input" type="text" name="codigo" value="<%= idioma.codigo %>" disabled>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label" for="idioma">Idioma</label>
+            <div class="control">
+                <input class="input" type="text" name="idioma" value="<%= idioma.idioma %>" disabled>
+            </div>
+        </div>
+
+        <div class="control">
+            <button class="button is-danger" type="submit">Eliminar</button>
+        </div>
+    </form>
+</div>
+
 </body>
 </html>
