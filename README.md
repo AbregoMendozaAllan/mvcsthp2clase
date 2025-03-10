@@ -39,6 +39,7 @@ This repository is created as a learning tool to understand the fundamentals of 
      DB_USER=root
      DB_PASSWORD=yourpassword
      DB_NAME=yourdatabase
+     PORT=yourport
      ```
 4. Run the application:
    ```bash
