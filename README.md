@@ -17,7 +17,7 @@ This repository is created as a learning tool to understand the fundamentals of 
   - Employees
   - Languages
   - Languages learned by employees
-- RESTful API structure
+- MVC structure
 - EJS-based UI for rendering views
 - MySQL2 integration for database connectivity
 
