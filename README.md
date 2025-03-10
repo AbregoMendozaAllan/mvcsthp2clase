@@ -25,8 +25,7 @@ This repository is created as a learning tool to understand the fundamentals of 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/node-learning-repo.git
-   cd node-learning-repo
+   git clone https://github.com/AbregoMendozaAllan/mvcsthp2clase.git
    ```
 2. Install dependencies:
    ```bash
